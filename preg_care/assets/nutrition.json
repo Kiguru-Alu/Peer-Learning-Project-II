@@ -1,0 +1,23 @@
+{
+    "general": [
+      "Drink plenty of water (at least 8 glasses a day).",
+      "Eat a balanced diet with fruits, vegetables, proteins, and whole grains.",
+      "Avoid processed foods and sugary snacks.",
+      "Take prenatal vitamins as prescribed."
+    ],
+    "first_trimester": [
+      "Eat small, frequent meals to reduce nausea.",
+      "Include iron-rich foods like beans and spinach.",
+      "Avoid raw meat, unpasteurized dairy, and high-mercury fish."
+    ],
+    "second_trimester": [
+      "Increase calcium intake with dairy or fortified alternatives.",
+      "Include lean proteins like eggs, fish, and legumes.",
+      "Eat foods rich in vitamin D and magnesium for bone health."
+    ],
+    "third_trimester": [
+      "Increase fiber intake to prevent constipation.",
+      "Add healthy fats like avocados and nuts.",
+      "Continue iron and protein intake to support baby’s growth."
+    ]
+  }
