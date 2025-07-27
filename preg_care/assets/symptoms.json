@@ -1,0 +1,26 @@
+{
+    "normal": {
+      "nausea": "Morning sickness is common in early pregnancy. Stay hydrated and eat small, frequent meals.",
+      "back_pain": "Mild back pain is normal due to the shift in posture and weight. Use pillows for support and avoid heavy lifting.",
+      "frequent_urination": "This is common due to hormonal changes and pressure on the bladder.",
+      "fatigue": "Feeling tired is common, especially in the first trimester. Get adequate rest and eat nutritious food.",
+      "mood_swings": "Hormonal changes can cause emotional ups and downs. It’s usually normal but talk to someone if it feels overwhelming.",
+      "mild_cramps": "Light cramping can happen as the uterus expands. Rest and hydration often help.",
+      "breast_tenderness": "Breasts may become sore or swollen as hormones increase — this is a typical early pregnancy symptom.",
+      "increased_vaginal_discharge": "A thin, milky discharge (leukorrhea) is common during pregnancy.",
+      "nasal_congestion": "Hormonal changes may cause stuffy nose or mild nosebleeds — this is called pregnancy rhinitis."
+    },
+    "warning": {
+      "severe_headache": "Could indicate high blood pressure or preeclampsia. Seek medical attention.",
+      "blurred_vision": "This may be a sign of preeclampsia. Contact your healthcare provider.",
+      "heavy_bleeding": "This is a serious concern and requires immediate medical attention.",
+      "no_fetal_movement": "If you’ve previously felt movement but notice a sudden stop, seek help immediately.",
+      "persistent_vomiting": "Could indicate hyperemesis gravidarum — a severe condition that requires treatment.",
+      "severe_abdominal_pain": "Sudden or intense pain may signal miscarriage, ectopic pregnancy, or placental issues.",
+      "fever_above_38": "Fever during pregnancy may indicate infection. Contact your doctor immediately.",
+      "painful_urination": "May indicate a urinary tract infection (UTI) — untreated UTIs can cause complications.",
+      "swelling_in_face_or_hands": "Can be a sign of preeclampsia and should be checked urgently."
+    }
+  }
+  
+    
