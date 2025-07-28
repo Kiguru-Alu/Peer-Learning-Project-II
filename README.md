@@ -72,7 +72,15 @@ preg_care/
 1. **Clone the repository:**
    ```bash
    git@github.com:Kiguru-Alu/Peer-Learning-Project-II.git
-   cd preg-care-cli
+   cd Peer-Learning-Project-II
+
+   create a .env file and add info to connect to an Aiven cloud database. 
+   The content of the .env file should be in this format:
+   DB_HOST=your-host-name
+   DB_USER=your-admin-name
+   DB_PASSWORD=your-password
+   DB_NAME=your-db-name
+   DB_PORT=your-port-name
 
    python3 main.py start
 
