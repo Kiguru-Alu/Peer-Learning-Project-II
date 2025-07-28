@@ -1,6 +1,6 @@
 # 🤰 Preg-care CLI App
 
-**Preg-care** is a command-line application designed to support pregnant women, especially in low-resource settings. It offers a range of personalized tools including weekly pregnancy tips, reminders, checkup tracking, emergency info, FAQs, nutrition advice, a symptom checker, and multi-language support (Kinyarwanda/English).
+**Preg-care** is a command-line application designed to support pregnant women, especially in low-resource settings. It offers a range of personalized tools including weekly pregnancy tips, reminders, checkup tracking, emergency info, FAQs, nutrition advice and a symptom checker.
 
 ---
 
