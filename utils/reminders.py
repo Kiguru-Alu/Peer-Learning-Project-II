@@ -56,8 +56,16 @@ def add_reminder(user_data, username):
         print(f"⚠️ MySQL Insert Error: {e}")
 
 
+
+
+def normalize_reminder(r):
+    return {
+        "date": str(r.get("date", "")).strip(),
+        "time": str(r.get("time", "")).strip(),
+        "note": str(r.get("note") or r.get("reminder") or "").strip()
+    }
+
 def delete_reminder(user_data, username):
-    # Fetch reminders from MySQL first
     reminders = get_reminders(username)
     if not reminders:
         print("⚠️ No reminders found to delete.")
@@ -65,9 +73,10 @@ def delete_reminder(user_data, username):
 
     print("\n🗑️ Select a Reminder to Delete:")
     for idx, r in enumerate(reminders, 1):
-        time_str = r.get("time", "Anytime")
-        note_str = r.get("reminder", r.get("note", "No note"))
-        print(f"{idx}. {r['date']} - {time_str} | {note_str}")
+        date_str = str(r.get("date", ""))
+        time_str = str(r.get("time", "Anytime"))
+        note_str = str(r.get("note") or r.get("reminder") or "No note")
+        print(f"{idx}. {date_str} - {time_str} | {note_str}")
 
     choice = input("Enter the number of the reminder to delete or press Enter to cancel: ").strip()
     if not choice.isdigit() or not (1 <= int(choice) <= len(reminders)):
@@ -75,20 +84,28 @@ def delete_reminder(user_data, username):
         return
 
     index_to_delete = int(choice) - 1
+    to_delete = normalize_reminder(reminders[index_to_delete])
 
-    # Delete from MySQL by index
+    # Delete from MySQL
     delete_reminder_by_index(username, index_to_delete)
 
-    # Delete from JSON reminders list if exists
+    # Delete from JSON
     json_reminders = user_data.get("reminders", [])
-    if json_reminders:
-        # We try to match the reminder by fields
-        to_delete = reminders[index_to_delete]
-        user_data["reminders"] = [
-            r for r in json_reminders
-            if not (r.get("date") == to_delete["date"] and
-                    r.get("time") == to_delete.get("time") and
-                    (r.get("note") == to_delete.get("note") or r.get("reminder") == to_delete.get("reminder")))
-        ]
+    updated_reminders = []
+    deleted = False
+
+    for r in json_reminders:
+        current = normalize_reminder(r)
+        print(f"Comparing: {current} == {to_delete}")  # Debug log
+
+        if current == to_delete:
+            deleted = True
+            continue  # Skip this item
+        updated_reminders.append(r)
+
+    if deleted:
+        user_data["reminders"] = updated_reminders
         save_user_data(username, user_data)
-        print("🗑️ Reminder deleted from JSON as well.")
+        print("✅ Reminder deleted from JSON.")
+    else:
+        print("⚠️ Reminder deleted from MySQL, but no match found in JSON.")
