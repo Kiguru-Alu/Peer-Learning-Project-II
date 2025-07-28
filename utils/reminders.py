@@ -33,11 +33,20 @@ def add_reminder(user_data, username):
     time_str = input("Enter time (optional, e.g., 14:00): ").strip()
     note = input("What is this reminder for? ").strip()
 
+    # ✅ Validate date
     try:
         date_obj = datetime.datetime.strptime(date_str, "%Y-%m-%d").date()
     except ValueError:
-        print("❌ Invalid date format.")
+        print("❌ Invalid date format. Use YYYY-MM-DD.")
         return
+
+    # ✅ Validate time if provided
+    if time_str:
+        try:
+            datetime.datetime.strptime(time_str, "%H:%M")
+        except ValueError:
+            print("❌ Invalid time format. Use 24-hour format HH:MM (e.g., 14:30).")
+            return
 
     # Save to JSON (as strings)
     reminder_for_json = {
@@ -54,8 +63,6 @@ def add_reminder(user_data, username):
         print("✅ Reminder added successfully (JSON + MySQL).")
     except Exception as e:
         print(f"⚠️ MySQL Insert Error: {e}")
-
-
 
 
 def normalize_reminder(r):
